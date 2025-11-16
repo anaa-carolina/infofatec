@@ -4,6 +4,7 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+  Linking,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useLocalSearchParams, router } from "expo-router";
@@ -246,7 +247,12 @@ export default function Educacao() {
           ))}
 
           {/* Botão de inscrição */}
-          <TouchableOpacity style={styles.enrollButton}>
+          <TouchableOpacity
+            style={styles.enrollButton}
+            onPress={() =>
+              Linking.openURL("https://www.cps.sp.gov.br/fatec/vestibular/")
+            }
+          >
             <Ionicons name="school" size={20} color="#fff" />
             <Text style={styles.enrollButtonText}>
               Inscreva-se no Vestibular

@@ -1,5 +1,13 @@
-import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
-import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import * as Linking from "expo-linking"; // importa o Linking
 
 export default function PerfilScreen() {
   return (
@@ -8,7 +16,6 @@ export default function PerfilScreen() {
       <View style={styles.header}>
         <Text style={styles.headerText}>Perfil da Desenvolvedora</Text>
       </View>
-
       {/* Foto e nome */}
       <View style={styles.profileBox}>
         <Image
@@ -18,7 +25,6 @@ export default function PerfilScreen() {
         <Text style={styles.name}>Ana Carolina Almeida</Text>
         <Text style={styles.title}>Desenvolvedora Front-end & Mobile</Text>
       </View>
-
       {/* Bio */}
       <View style={styles.bioBox}>
         <Text style={styles.bio}>
@@ -28,70 +34,88 @@ export default function PerfilScreen() {
           Multiplataforma na Fatec Cotia.
         </Text>
       </View>
-
-      {/* Habilidades */}
-      <Text style={styles.section}>🧠 Tecnologias</Text>
+      {/* Habilidades */} <Text style={styles.section}>🧠 Tecnologias</Text>{" "}
       <View style={styles.techBox}>
-        {/* Front-end */}
-        <Text style={styles.techCategory}>Front-end</Text>
+        {" "}
+        {/* Front-end */} <Text style={styles.techCategory}>Front-end</Text>{" "}
         <View style={styles.techItem}>
-          <Ionicons name="logo-html5" size={20} color="#e34f26" />
-          <Text style={styles.techText}>HTML5</Text>
-        </View>
+          {" "}
+          <Ionicons name="logo-html5" size={20} color="#e34f26" />{" "}
+          <Text style={styles.techText}>HTML5</Text>{" "}
+        </View>{" "}
         <View style={styles.techItem}>
-          <Ionicons name="logo-css3" size={20} color="#2965f1" />
-          <Text style={styles.techText}>CSS</Text>
-        </View>
+          {" "}
+          <Ionicons name="logo-css3" size={20} color="#2965f1" />{" "}
+          <Text style={styles.techText}>CSS</Text>{" "}
+        </View>{" "}
         <View style={styles.techItem}>
-          <Ionicons name="logo-react" size={20} color="#61dafb" />
-          <Text style={styles.techText}>React</Text>
-        </View>
-
-        {/* Mobile */}
-        <Text style={styles.techCategory}>Mobile</Text>
+          {" "}
+          <Ionicons name="logo-react" size={20} color="#61dafb" />{" "}
+          <Text style={styles.techText}>React</Text>{" "}
+        </View>{" "}
+        {/* Mobile */} <Text style={styles.techCategory}>Mobile</Text>{" "}
         <View style={styles.techItem}>
-          <Ionicons name="phone-portrait" size={20} color="#dd1e1eff" />
-          <Text style={styles.techText}>React Native</Text>
-        </View>
-
-        {/* Back-end */}
-        <Text style={styles.techCategory}>Back-end</Text>
+          {" "}
+          <Ionicons name="phone-portrait" size={20} color="#dd1e1eff" />{" "}
+          <Text style={styles.techText}>React Native</Text>{" "}
+        </View>{" "}
+        {/* Back-end */} <Text style={styles.techCategory}>Back-end</Text>{" "}
         <View style={styles.techItem}>
-          <Ionicons name="logo-python" size={20} color="#3776ab" />
-          <Text style={styles.techText}>Python</Text>
-        </View>
+          {" "}
+          <Ionicons name="logo-python" size={20} color="#3776ab" />{" "}
+          <Text style={styles.techText}>Python</Text>{" "}
+        </View>{" "}
         <View style={styles.techItem}>
-          <Ionicons name="logo-nodejs" size={20} color="#68a063" />
-          <Text style={styles.techText}>Node.js</Text>
-        </View>
-
-        {/* Banco de Dados */}
-        <Text style={styles.techCategory}>Banco de Dados</Text>
+          {" "}
+          <Ionicons name="logo-nodejs" size={20} color="#68a063" />{" "}
+          <Text style={styles.techText}>Node.js</Text>{" "}
+        </View>{" "}
+        {/* Banco de Dados */}{" "}
+        <Text style={styles.techCategory}>Banco de Dados</Text>{" "}
         <View style={styles.techItem}>
-          <Ionicons name="server" size={20} color="#00758f" />
-          <Text style={styles.techText}>MySQL</Text>
-        </View>
+          {" "}
+          <Ionicons name="server" size={20} color="#00758f" />{" "}
+          <Text style={styles.techText}>MySQL</Text>{" "}
+        </View>{" "}
         <View style={styles.techItem}>
-          <Ionicons name="document-text" size={20} color="#4db6ac" />
-          <Text style={styles.techText}>SQLite</Text>
-        </View>
+          {" "}
+          <Ionicons name="document-text" size={20} color="#4db6ac" />{" "}
+          <Text style={styles.techText}>SQLite</Text>{" "}
+        </View>{" "}
         <View style={styles.techItem}>
-          <Ionicons name="cloud-outline" size={20} color="#47a248" />
-          <Text style={styles.techText}>MongoDB</Text>
-        </View>
+          {" "}
+          <Ionicons name="cloud-outline" size={20} color="#47a248" />{" "}
+          <Text style={styles.techText}>MongoDB</Text>{" "}
+        </View>{" "}
       </View>
-
       {/* Contato */}
       <Text style={styles.section}>📬 Contato</Text>
       <View style={styles.contactBox}>
-        <View style={styles.contactItem}>
+        {/* Email */}
+        <TouchableOpacity
+          style={styles.contactItem}
+          onPress={() =>
+            Linking.openURL("mailto:anaalmeida.contat00@gmail.com")
+          }
+        >
           <Ionicons name="mail" size={20} color="#dd1e1eff" />
           <Text style={styles.contactText}>anaalmeida.contat00@gmail.com</Text>
-        </View>
-        <View style={styles.contactItem}>
+        </TouchableOpacity>
+
+        {/* LinkedIn */}
+        <TouchableOpacity
+          style={styles.contactItem}
+          onPress={() =>
+            Linking.openURL(
+              "https://www.linkedin.com/in/ana-carolina-almeida-bb776b230/"
+            )
+          }
+        >
           <Ionicons name="logo-linkedin" size={20} color="#0077b5" />
-          <Text style={styles.contactText}>https://www.linkedin.com/in/ana-carolina-almeida-bb776b230/</Text>
-        </View>
+          <Text style={styles.contactText}>
+            linkedin.com/in/ana-carolina-almeida
+          </Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
