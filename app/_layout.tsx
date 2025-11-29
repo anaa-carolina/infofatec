@@ -1,5 +1,5 @@
-import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
+import { Tabs } from "expo-router";
 
 export default function Layout() {
   return (
@@ -35,6 +35,9 @@ export default function Layout() {
               break;
             case "educacao":
               iconName = "book";
+              break;
+            case "teste":
+              iconName = "clipboard-outline";
               break;
             case "empregos":
               iconName = "briefcase";
@@ -72,6 +75,13 @@ export default function Layout() {
         options={{
           title: "Educação",
           tabBarLabel: "Educação",
+        }}
+      />
+      <Tabs.Screen
+        name="teste"
+        options={{
+          title: "Teste",
+          tabBarLabel: "Teste",
         }}
       />
       <Tabs.Screen
